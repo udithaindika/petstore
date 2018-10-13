@@ -30,6 +30,19 @@ class Store {
         this.pets = response.data;
     }
 
+    @action
+    createPet(name, dateOfBirth, owner_id) {
+        this.API.post('/pets', {
+            name,
+            dateOfBirth,
+            owner_id
+        }).then(this.updatePet)
+    }
+
+    @action.bound
+    updatePet(response) {
+        this.pets.push(response.data);
+    }
 }
 
 export default Store;

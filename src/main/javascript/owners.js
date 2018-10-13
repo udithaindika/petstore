@@ -1,5 +1,6 @@
 import React from 'react'
 import { observer, inject } from "mobx-react"
+import { Table, Container } from 'reactstrap';
 
 @inject('store')
 @observer
@@ -18,9 +19,9 @@ class Owners extends React.Component {
         const pets = owner.pets || [];
         return (
             <ul>
-                {pets.map((item, index) => {
+                {pets.map((pet, index) => {
                     return (
-                        <li key={item}>{item.id}</li>
+                        <li key={pet.id}>{pet.id}</li>
                     )
                 })}
             </ul>
@@ -30,7 +31,7 @@ class Owners extends React.Component {
     dispalyOwnerDetails(owners) {
         return owners.map((item, index) => {
             return (
-                <tr key={item} className="results_row">
+                <tr key={item.id} className="results_row">
                     <td>{item.id}</td>
                     <td>{item.firstName}</td>
                     <td>{item.lastName}</td>
@@ -45,17 +46,21 @@ class Owners extends React.Component {
         const { owners } = store;
 
         return (
-            <table className="results">
-                <tbody>
-                    <tr>
-                        <th>ID</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Pet ID</th>
-                    </tr>
-                    {this.dispalyOwnerDetails(owners)}
-                </tbody>
-            </table>
+            <Container fluid>
+                <Table striped>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Pet ID</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {this.dispalyOwnerDetails(owners)}
+                    </tbody>
+                </Table>
+            </Container>
         )
     }
 }

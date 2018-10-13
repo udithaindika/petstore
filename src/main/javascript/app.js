@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Provider, Observer } from 'mobx-react';
 import { observable } from 'mobx';
 import { HashRouter, Switch, Route, Link, Redirect } from 'react-router-dom';
+import { Nav, NavItem, NavLink, Navbar } from 'reactstrap';
+import { NavLink as RRNavLink } from 'react-router-dom';
 import Store from './store'
 import Owners from './owners'
 import Pets from './pets'
@@ -13,15 +15,19 @@ class App extends Component {
         return (
             <HashRouter>
                 <Provider store={store}>
-                    <div className="app">
-                        <header className="app_header">
-                            <nav className="nav">
-                                <ul className="menu">
-                                    <li className="menu_item"><Link to="/pets">PETS</Link></li>
-                                    <li className="menu_item"><Link to="/owners">OWNERS</Link></li>
-                                </ul>
-                                <hr />
-                            </nav>
+                    <div>
+                        <header>
+                            <Navbar>
+                                <Nav pills>
+                                    {console.log(window.location.hash)}
+                                    <NavItem>
+                                        <NavLink tag={RRNavLink} className="nav-link" to="/pets" activeClassName="active">PETS</NavLink>
+                                    </NavItem>
+                                    <NavItem>
+                                        <NavLink tag={RRNavLink} className="nav-link" to="/owners" activeClassName="active">OWNERS</NavLink>
+                                    </NavItem>
+                                </Nav>
+                            </Navbar>
                         </header>
                         <main>
                             <Switch>
