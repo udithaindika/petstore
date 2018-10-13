@@ -19,7 +19,6 @@ class App extends Component {
                         <header>
                             <Navbar>
                                 <Nav pills>
-                                    {console.log(window.location.hash)}
                                     <NavItem>
                                         <NavLink tag={RRNavLink} className="nav-link" to="/pets" activeClassName="active">PETS</NavLink>
                                     </NavItem>
