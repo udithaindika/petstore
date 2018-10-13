@@ -15,13 +15,13 @@ public class PetService {
 	@Autowired
 	private PetDAO petDAO;
 	
-	@Transactional(readOnly=true)
-	public List<Pet> getAllPets(){
-		return petDAO.findAll();
-	}
-	
 	@Transactional
 	public Pet createPet(Pet pet) {
 		return petDAO.saveAndFlush(pet);
+	}
+	
+	@Transactional(readOnly=true)
+	public List<Pet> getAllPets(){
+		return petDAO.findAll();
 	}
 }

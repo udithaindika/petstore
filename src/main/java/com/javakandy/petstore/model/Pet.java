@@ -28,14 +28,6 @@ public class Pet {
     @NotNull
     private Integer owner_id;
     
-	public Integer getOwner_id() {
-		return owner_id;
-	}
-
-	public void setOwner_id(Integer owner_id) {
-		this.owner_id = owner_id;
-	}
-
 	public Date getDateOfBirth() {
 		return dateOfBirth;
 	}
@@ -48,6 +40,10 @@ public class Pet {
 		return name;
 	}
 
+	public Integer getOwner_id() {
+		return owner_id;
+	}
+
 	public void setDateOfBirth(Date dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
@@ -58,5 +54,9 @@ public class Pet {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public void setOwner_id(Integer owner_id) {
+		this.owner_id = owner_id;
 	}
 }

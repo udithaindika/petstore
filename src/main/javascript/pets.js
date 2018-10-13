@@ -32,7 +32,7 @@ class Pets extends React.Component {
         if (!petName || !petDOB || !ownerId) {
             this.setState({ addPet: true, saveErrors: true });
         } else {
-            this.setState({ addPet: false, saveErrors: false });
+            this.setState({ addPet: false, saveErrors: false, petName: "", petDOB: "", ownerId: "" });
             store.createPet(petName, petDOB, ownerId);
         }
     }

@@ -12,13 +12,13 @@ import javax.validation.Valid;
 @Entity
 public class Owner {
 	
-	@Id
-	@Valid
-	private Integer id;
-	
 	@Column
 	@Valid
 	private String firstName;
+	
+	@Id
+	@Valid
+	private Integer id;
 	
 	@Column
 	@Valid
@@ -29,24 +29,20 @@ public class Owner {
 	private Set<Pet> pets;	
 	
 	
-	public Set<Pet> getPets() {
-		return pets;
-	}
-
-	public void setPets(Set<Pet> pets) {
-		this.pets = pets;
-	}
-
 	public String getFirstName() {
 		return firstName;
 	}
-	
+
 	public Integer getId() {
 		return id;
 	}
-	
+
 	public String getLastName() {
 		return lastName;
+	}
+	
+	public Set<Pet> getPets() {
+		return pets;
 	}
 	
 	public void setFirstName(String firstName) {
@@ -59,5 +55,9 @@ public class Owner {
 	
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
+	}
+	
+	public void setPets(Set<Pet> pets) {
+		this.pets = pets;
 	}
 }
